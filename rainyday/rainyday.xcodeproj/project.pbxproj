@@ -25,6 +25,7 @@
 		F3102C2E248BC76900E42F23 /* Result+value.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3102C2D248BC76900E42F23 /* Result+value.swift */; };
 		F3102C30248BC8EC00E42F23 /* OpenWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3102C2F248BC8EC00E42F23 /* OpenWeatherService.swift */; };
 		F3102C37248BD9BE00E42F23 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3102C36248BD9BE00E42F23 /* Resource.swift */; };
+		F3102C39248BEBF100E42F23 /* openWeatherService.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3102C38248BEBF100E42F23 /* openWeatherService.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F3102C2D248BC76900E42F23 /* Result+value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+value.swift"; sourceTree = "<group>"; };
 		F3102C2F248BC8EC00E42F23 /* OpenWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherService.swift; sourceTree = "<group>"; };
 		F3102C36248BD9BE00E42F23 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		F3102C38248BEBF100E42F23 /* openWeatherService.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = openWeatherService.plist; path = ../../../../../../../14_rainyday/rainyday/rainyday/openWeatherService.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				F3102BFD248BC00D00E42F23 /* LaunchScreen.storyboard */,
 				F3102C00248BC00D00E42F23 /* Info.plist */,
+				F3102C38248BEBF100E42F23 /* openWeatherService.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3102BFF248BC00D00E42F23 /* LaunchScreen.storyboard in Resources */,
+				F3102C39248BEBF100E42F23 /* openWeatherService.plist in Resources */,
 				F3102BFC248BC00D00E42F23 /* Assets.xcassets in Resources */,
 				F3102BFA248BC00700E42F23 /* Main.storyboard in Resources */,
 			);
