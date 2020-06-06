@@ -11,6 +11,9 @@ import CoreLocation
 
 class MainViewController: UIViewController {
     // MARK: - Layout
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var contentView: UIView!
+    
     // 헤더 영역
     @IBOutlet private weak var locationView: UIView!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -25,7 +28,11 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var humidityLabel: UILabel!
     
     // 일기 예보
+    @IBOutlet private weak var forecastContainerView: UIView!
     @IBOutlet private weak var forecastView: UIView!
+    
+    // 제약조건
+    @IBOutlet private weak var forecastButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Property
     private let networkService = NetworkService()
@@ -41,10 +48,12 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // 현재 위치 정보를 가져 옴
+        setLoading(true)
         locationService.getLocation { [weak self] in
             guard let location = $0.result else {
                 // 위치 정보를 가져오는데 실패한 경우
                 print("Fail to get current location. because of \($0.error.debugDescription)")
+                self?.setLoading(false)
                 return
             }
             
@@ -58,6 +67,7 @@ class MainViewController: UIViewController {
                 latitude: location.coordinate.latitude,
                 longitude: location.coordinate.longitude
             ) {
+                self?.setLoading(false)
                 guard let weather = $0.result else {
                     // 날씨 정보 요청에 실패한 경우
                     print("Fail to request weather. because of \($0.error.debugDescription)")
@@ -69,6 +79,7 @@ class MainViewController: UIViewController {
                 guard let daily = weather.daily.first else { return }
                 self?.setHeader(timeZone: weather.timezone, in: Date())
                 self?.setWeahter(current: weather.current, min: daily.temperature.minimum, max: daily.temperature.maximum)
+                self?.showForecastButton()
             }
         }
     }
@@ -111,6 +122,24 @@ class MainViewController: UIViewController {
         maxTemperatureLabel.text = String(format: "%.2f", convert(kelvin: max))
         // 습도
         humidityLabel.text = String(current.humidity)
+    }
+    
+    /// 로팅 상태 설정
+    private func setLoading(_ isLoading: Bool) {
+        UIView.animate(withDuration: 1) {
+            self.contentView.alpha = isLoading ? 0 : 1
+            self.activityIndicator.isHidden = !isLoading
+        }
+        
+        isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+    
+    /// 일기 예보 버튼 보임
+    private func showForecastButton() {
+        UIViewPropertyAnimator(duration: 2, dampingRatio: 0.5) {
+            self.forecastButtonBottomConstraint.priority = .defaultHigh + 1
+            self.forecastContainerView.layoutIfNeeded()
+        }.startAnimation()
     }
     
     /// 켈빈 온도를 섭씨온도로 변환
