@@ -8,6 +8,26 @@
 
 import Foundation
 
-struct Current {
+struct Current: Codable {
+    /// 일자 (TimeInterval)
+    let dateTime: Int
+    /// 일출 (TimeInterval)
+    let sunrise: Int
+    /// 일몰 (TimeInterval)
+    let sunset: Int
+    /// 현재 기온 (Kelvin)
+    let temperature: Double
+    /// 습도 (%)
+    let humidity: Int
+    /// 날씨
+    let weather: [Weather]
     
+    enum CodingKeys: String, CodingKey {
+        case dateTime = "dt"
+        case sunrise
+        case sunset
+        case temperature = "temp"
+        case humidity
+        case weather
+    }
 }

@@ -8,6 +8,17 @@
 
 import Foundation
 
-struct Temperature {
+struct Temperature: Codable {
+    /// 일간 기온 (Kelvin)
+    let day: Double
+    /// 최저 기온 (Kelvin)
+    let minimum: Double
+    /// 최고 기온 (Kelvin)
+    let maximum: Double
     
+    enum CodingKeys: String, CodingKey {
+        case day
+        case minimum = "min"
+        case maximum = "max"
+    }
 }

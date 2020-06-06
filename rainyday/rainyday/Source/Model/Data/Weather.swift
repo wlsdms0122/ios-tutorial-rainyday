@@ -8,8 +8,11 @@
 
 import Foundation
 
-struct Weather {
-    
+struct Weather: Codable {
+    /// 날씨 id
+    let id: Int
+    /// 날씨
+    let main: WeatherCondition
 }
 
 enum WeatherCondition: String, Codable {
