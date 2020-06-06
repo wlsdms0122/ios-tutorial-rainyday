@@ -28,11 +28,27 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var forecastView: UIView!
     
     // MARK: - Property
+    private let networkService = NetworkService()
+    private let locationService = LocationService()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        
+        // 현재 위치 정보를 가져 옴
+        locationService.getLocation {
+            guard let location = $0.result else {
+                // 위치 정보를 가져오는데 실패한 경우
+                print("Fail to get current location. because of \($0.error.debugDescription)")
+                return
+            }
+            
+            // 위치 정보를 가져온 경우
+            print("Success current location.")
+            print(" - Latitude: \(location.coordinate.latitude)")
+            print(" - Longitude: \(location.coordinate.longitude)")
+        }
     }
     
     // MARK: - Public
