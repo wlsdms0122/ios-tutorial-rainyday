@@ -225,6 +225,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="currentTemperatureLabel" destination="lyk-ZT-jIk" id="u4e-tj-HLj"/>
+                        <outlet property="dateLabel" destination="igd-3O-xRH" id="ZC8-yl-Lak"/>
+                        <outlet property="forecastView" destination="aHg-6M-Wkg" id="Rf5-fP-g6a"/>
+                        <outlet property="humidityLabel" destination="XmH-jl-dW1" id="Ojr-I9-hVX"/>
+                        <outlet property="locationLabel" destination="egl-Fb-kmT" id="fTC-ti-DHj"/>
+                        <outlet property="locationView" destination="Zbm-IF-Bt4" id="Cu4-gJ-sLo"/>
+                        <outlet property="maxTemperatureLabel" destination="g4m-jg-fG7" id="H3r-Ni-qwZ"/>
+                        <outlet property="minTemperatureLabel" destination="qWy-LG-qAQ" id="XFC-8w-eug"/>
+                        <outlet property="rainydayLabel" destination="hyp-gb-vRR" id="zD5-iy-ZYS"/>
+                        <outlet property="timeLabel" destination="Cgq-vc-mey" id="c5b-II-4t7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
