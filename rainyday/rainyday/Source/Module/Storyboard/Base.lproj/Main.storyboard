@@ -239,6 +239,9 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0Y-uA-s7J" userLabel="Forecast Button">
                                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                                        <connections>
+                                                            <action selector="forecastButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6hc-5g-hpk"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="accent01"/>
@@ -336,7 +339,7 @@
                                     <constraint firstItem="nzp-Ll-oXs" firstAttribute="leading" secondItem="gcB-rT-NEv" secondAttribute="leading" constant="16" id="vFA-kN-VdL"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZlC-Qm-2aC">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZlC-Qm-2aC" userLabel="Forecast Collection View">
                                 <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="TKA-Ic-7CH">
@@ -346,14 +349,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="30b-cP-5o0" customClass="ForecastCollectionViewCell" customModule="rainyday" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ForecastCollectionViewCell" id="30b-cP-5o0" customClass="ForecastCollectionViewCell" customModule="rainyday" customModuleProvider="target">
                                         <rect key="frame" x="35.5" y="8" width="343" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uHq-TM-yLj">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OEa-K3-3Is" userLabel="Weather Stack View">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="OEa-K3-3Is" userLabel="Weather Stack View">
                                                     <rect key="frame" x="40" y="14.5" width="75" height="49.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06.07 (일)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThA-sE-lhV" userLabel="Date Label">
@@ -371,10 +374,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAi-4k-bGu" userLabel="Detail View">
-                                                    <rect key="frame" x="167" y="0.0" width="152" height="78"/>
+                                                    <rect key="frame" x="169" y="0.0" width="150" height="78"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7P-3d-5vm" userLabel="Day Temperature View">
-                                                            <rect key="frame" x="0.0" y="16" width="73" height="17"/>
+                                                            <rect key="frame" x="0.0" y="16" width="66" height="17"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_current" translatesAutoresizingMaskIntoConstraints="NO" id="hjH-6J-Idq" userLabel="Day Temperature Icon Image View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -384,13 +387,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26.38" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByM-GQ-zy9" userLabel="Day Temperature Label">
-                                                                    <rect key="frame" x="21" y="-1.5" width="45" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="21" y="0.0" width="38" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" name="grey03"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_digit" translatesAutoresizingMaskIntoConstraints="NO" id="MiL-dd-3SL" userLabel="Day Temperature Digit Icon Image View">
-                                                                    <rect key="frame" x="66" y="0.0" width="7" height="17"/>
+                                                                    <rect key="frame" x="59" y="0.0" width="7" height="17"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="7" id="G80-ld-Djt"/>
                                                                         <constraint firstAttribute="height" constant="17" id="L91-Rm-bW5"/>
@@ -410,7 +413,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ig-gT-3Hg" userLabel="Humidity View">
-                                                            <rect key="frame" x="86" y="16" width="59.5" height="17"/>
+                                                            <rect key="frame" x="86" y="16" width="56" height="17"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_humidity" translatesAutoresizingMaskIntoConstraints="NO" id="p9x-Vw-0dU" userLabel="Humidity Icon Image View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -420,13 +423,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-vd-rSz" userLabel="Humidity Label">
-                                                                    <rect key="frame" x="21" y="-1.5" width="21.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="21" y="0.0" width="18" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" name="grey03"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_humidity_digit" translatesAutoresizingMaskIntoConstraints="NO" id="nLI-60-5LT" userLabel="Humidity Digit Icon Image View">
-                                                                    <rect key="frame" x="42.5" y="0.0" width="17" height="17"/>
+                                                                    <rect key="frame" x="39" y="0.0" width="17" height="17"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="17" id="TtY-Ih-4Qn"/>
                                                                         <constraint firstAttribute="height" constant="17" id="pRT-MA-ZJz"/>
@@ -446,7 +449,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlR-Mm-wgp" userLabel="Min Temperature View">
-                                                            <rect key="frame" x="0.0" y="45" width="72.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="45" width="65.5" height="17"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_min" translatesAutoresizingMaskIntoConstraints="NO" id="rGi-RK-4Q0" userLabel="Min Temperature Icon Image View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -456,13 +459,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBc-9k-vLD" userLabel="Min Temperature Label">
-                                                                    <rect key="frame" x="21" y="-1.5" width="44.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="21" y="0.0" width="37.5" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" name="grey03"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_digit" translatesAutoresizingMaskIntoConstraints="NO" id="gwc-xS-p0l" userLabel="Min Temperature Digit Icon Image View">
-                                                                    <rect key="frame" x="65.5" y="0.0" width="7" height="17"/>
+                                                                    <rect key="frame" x="58.5" y="0.0" width="7" height="17"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="7" id="APc-0R-Iza"/>
                                                                         <constraint firstAttribute="height" constant="17" id="dk5-r4-1s9"/>
@@ -482,7 +485,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vey-ze-EI6" userLabel="Max Temperature View">
-                                                            <rect key="frame" x="86" y="45" width="71.5" height="17"/>
+                                                            <rect key="frame" x="86" y="45" width="65" height="17"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_max" translatesAutoresizingMaskIntoConstraints="NO" id="5Ue-Ir-NRX" userLabel="Max Temperature Icon Image View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -492,13 +495,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26.67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNL-i7-KjN" userLabel="Max Temperature Label">
-                                                                    <rect key="frame" x="21" y="-1.5" width="43.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="21" y="0.0" width="37" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" name="grey03"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic28_temperature_digit" translatesAutoresizingMaskIntoConstraints="NO" id="ahS-Dh-BLO" userLabel="Min Temperature Digit Icon Image View">
-                                                                    <rect key="frame" x="64.5" y="0.0" width="7" height="17"/>
+                                                                    <rect key="frame" x="58" y="0.0" width="7" height="17"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="7" id="5el-ct-gif"/>
                                                                         <constraint firstAttribute="height" constant="17" id="vjM-wc-RDA"/>
@@ -521,25 +524,33 @@
                                                     <constraints>
                                                         <constraint firstItem="0Ig-gT-3Hg" firstAttribute="top" secondItem="mAi-4k-bGu" secondAttribute="top" constant="16" id="4Ta-zC-4Dz"/>
                                                         <constraint firstAttribute="bottom" secondItem="Vey-ze-EI6" secondAttribute="bottom" constant="16" id="5FD-V2-M5M"/>
-                                                        <constraint firstItem="Vey-ze-EI6" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" constant="86" id="70w-8R-IbA"/>
-                                                        <constraint firstItem="0Ig-gT-3Hg" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" constant="86" id="BqA-fC-Qjo"/>
+                                                        <constraint firstItem="Vey-ze-EI6" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" constant="86" id="D4s-dI-Uua"/>
+                                                        <constraint firstAttribute="width" constant="150" id="SaB-xe-fPB"/>
                                                         <constraint firstItem="N7P-3d-5vm" firstAttribute="top" secondItem="mAi-4k-bGu" secondAttribute="top" constant="16" id="ViG-0y-qe7"/>
                                                         <constraint firstAttribute="bottom" secondItem="jlR-Mm-wgp" secondAttribute="bottom" constant="16" id="Xog-0i-zgF"/>
-                                                        <constraint firstItem="N7P-3d-5vm" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" id="hBt-9H-y2R"/>
-                                                        <constraint firstItem="jlR-Mm-wgp" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" id="tfA-pw-CG8"/>
+                                                        <constraint firstItem="N7P-3d-5vm" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" id="d07-CR-7p1"/>
+                                                        <constraint firstItem="0Ig-gT-3Hg" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" constant="86" id="dCz-Gp-3XR"/>
+                                                        <constraint firstItem="jlR-Mm-wgp" firstAttribute="leading" secondItem="mAi-4k-bGu" secondAttribute="leading" id="h2l-pw-z4R"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mAi-4k-bGu" firstAttribute="leading" secondItem="OEa-K3-3Is" secondAttribute="trailing" constant="52" id="3CC-D4-qNw"/>
                                                 <constraint firstItem="OEa-K3-3Is" firstAttribute="leading" secondItem="uHq-TM-yLj" secondAttribute="leading" constant="40" id="58m-id-Kaq"/>
+                                                <constraint firstAttribute="trailing" secondItem="mAi-4k-bGu" secondAttribute="trailing" constant="24" id="79x-RK-G9c"/>
                                                 <constraint firstItem="mAi-4k-bGu" firstAttribute="top" secondItem="uHq-TM-yLj" secondAttribute="top" id="Pbh-2d-PmY"/>
-                                                <constraint firstAttribute="trailing" secondItem="mAi-4k-bGu" secondAttribute="trailing" constant="24" id="Qc4-VJ-qbI"/>
                                                 <constraint firstItem="OEa-K3-3Is" firstAttribute="centerY" secondItem="uHq-TM-yLj" secondAttribute="centerY" id="i3C-f0-YCE"/>
                                                 <constraint firstAttribute="bottom" secondItem="mAi-4k-bGu" secondAttribute="bottom" id="nz4-aw-Xvh"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="primary01"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="ThA-sE-lhV" id="EEW-dj-05M"/>
+                                            <outlet property="dayTemperatureLabel" destination="ByM-GQ-zy9" id="b0W-ZZ-I1T"/>
+                                            <outlet property="humidityLabel" destination="Hfj-vd-rSz" id="UQS-Gp-Nfl"/>
+                                            <outlet property="maxTemperatureLabel" destination="ZNL-i7-KjN" id="V7N-ia-Kmt"/>
+                                            <outlet property="minTemperatureLabel" destination="XBc-9k-vLD" id="H9I-fb-vM8"/>
+                                            <outlet property="weatherLabel" destination="MgZ-5V-luX" id="Btn-V6-JdE"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -556,6 +567,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NrW-do-BW1"/>
                     </view>
+                    <connections>
+                        <outlet property="forecastCollectionView" destination="ZlC-Qm-2aC" id="V4G-5R-gTD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3g-sX-RQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

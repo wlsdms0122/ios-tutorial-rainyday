@@ -10,6 +10,7 @@ import UIKit
 
 class ForecastViewController: UIViewController {
     // MARK: - Layout
+    @IBOutlet private weak var forecastCollectionView: UICollectionView!
     
     // MARK: - Property
 
