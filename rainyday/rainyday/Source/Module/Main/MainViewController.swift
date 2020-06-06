@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
         setupLayout()
         
         // 현재 위치 정보를 가져 옴
-        locationService.getLocation {
+        locationService.getLocation { [weak self] in
             guard let location = $0.result else {
                 // 위치 정보를 가져오는데 실패한 경우
                 print("Fail to get current location. because of \($0.error.debugDescription)")
@@ -48,6 +48,22 @@ class MainViewController: UIViewController {
             print("Success current location.")
             print(" - Latitude: \(location.coordinate.latitude)")
             print(" - Longitude: \(location.coordinate.longitude)")
+            
+            // 현재 위치에 대한 날씨 정보를 요청
+            self?.networkService.requestGetWeather(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude
+            ) {
+                guard let weather = $0.result else {
+                    // 날씨 정보 요청에 실패한 경우
+                    print("Fail to request weather. because of \($0.error.debugDescription)")
+                    return
+                }
+                
+                // 날씨 정보를 얻은 경우
+                print(weather)
+                // TODO: Layout 정보 갱신
+            }
         }
     }
     
