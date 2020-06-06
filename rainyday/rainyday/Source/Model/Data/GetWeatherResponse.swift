@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct GetWeatherResponse {
+struct GetWeatherResponse: Codable {
     
 }

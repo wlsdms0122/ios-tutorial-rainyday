@@ -9,5 +9,6 @@
 import Foundation
 
 enum RDError: Error {
+    case appIdNotFound
     case unknown
 }

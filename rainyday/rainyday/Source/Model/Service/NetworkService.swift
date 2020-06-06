@@ -10,10 +10,15 @@ import Foundation
 import CoreLocation
 
 class NetworkService {
-    private let networkService = NetworkService()
+    private let networkProvider = NetworkProvider()
     
     func requestGetWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completed: @escaping (Result<GetWeatherResponse, Error>) -> Void) {
-        
+        guard let appid = OpenWeatherService.appid else {
+            completed(.failure(RDError.appIdNotFound))
+            return
+        }
+        let api = GetWeatherApi(latitude: latitude, longitude: longitude, appid: appid)
+        networkProvider.request(api: api, completed: completed)
     }
 }
 
@@ -85,6 +90,21 @@ extension Api {
 }
 
 // https://api.openweathermap.org/data/2.5/onecall?lat=$(latitude)&lon=$(longitude)&exclude=hourly&appid=$(api-key)
-struct GetWeatherApi {
+struct GetWeatherApi: Api {
+    typealias Result = GetWeatherResponse
     
+    var baseUrl: URL = URL(string: "https://api.openweathermap.org/data/2.5")!
+    var path: String = "/onecall"
+    var method: HTTPMethod = .get
+    var parameters: [String : Any]?
+    var headers: [String : String]? = nil
+    
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, appid: String) {
+        parameters = [
+            "lat": latitude,
+            "lon": longitude,
+            "exclude": "hourly",
+            "appid": appid
+        ]
+    }
 }
