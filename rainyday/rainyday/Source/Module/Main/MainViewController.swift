@@ -37,6 +37,8 @@ class MainViewController: UIViewController {
     // MARK: - Property
     private let networkService = NetworkService()
     private let locationService = LocationService()
+    
+    private var forecasts: [Daily] = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -77,6 +79,8 @@ class MainViewController: UIViewController {
                 // 날씨 정보를 얻은 경우
                 print(weather)
                 guard let daily = weather.daily.first else { return }
+                self?.forecasts = Array(weather.daily[1 ..< weather.daily.count])
+                
                 self?.setHeader(timeZone: weather.timezone, in: Date())
                 self?.setWeahter(current: weather.current, min: daily.temperature.minimum, max: daily.temperature.maximum)
                 self?.showForecastButton()
@@ -145,5 +149,15 @@ class MainViewController: UIViewController {
     /// 켈빈 온도를 섭씨온도로 변환
     private func convert(kelvin: Double) -> Double {
         kelvin - 273.15
+    }
+    
+    // MARK: - Action
+    @IBAction func forecastButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ForecastViewController") as? ForecastViewController else { return }
+        
+        viewController.forecasts = forecasts
+        
+        present(viewController, animated: true, completion: nil)
     }
 }
