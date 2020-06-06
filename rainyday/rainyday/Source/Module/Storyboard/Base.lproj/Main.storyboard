@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +16,213 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YC2-NX-OQI" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="32g-cc-C45" userLabel="Header Stack View">
+                                        <rect key="frame" x="109" y="24" width="196" height="48"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-IF-Bt4" userLabel="Location View">
+                                                <rect key="frame" x="44" y="0.0" width="108.5" height="24"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Asia/Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egl-Fb-kmT" userLabel="Location Label">
+                                                        <rect key="frame" x="14" y="2" width="80.5" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="HYA-g9-DZW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="white"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="thirdly02"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="egl-Fb-kmT" secondAttribute="trailing" constant="14" id="5Mk-ev-Yqv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="egl-Fb-kmT" secondAttribute="bottom" constant="2" id="Ger-vw-iui"/>
+                                                    <constraint firstItem="egl-Fb-kmT" firstAttribute="top" secondItem="Zbm-IF-Bt4" secondAttribute="top" constant="2" id="bhv-VW-9QP"/>
+                                                    <constraint firstItem="egl-Fb-kmT" firstAttribute="leading" secondItem="Zbm-IF-Bt4" secondAttribute="leading" constant="14" id="sJE-KP-lmd"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kth-dh-FMF" userLabel="Datetime Stack View">
+                                                <rect key="frame" x="0.0" y="30" width="196" height="18"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020. 06 .06 (토)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igd-3O-xRH" userLabel="Date Label">
+                                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" name="grey03"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-tl-Wpb" userLabel="Divider View">
+                                                        <rect key="frame" x="124.5" y="0.0" width="2" height="18"/>
+                                                        <color key="backgroundColor" name="thirdly02"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="2" id="CFh-EH-BAs"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 2:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgq-vc-mey" userLabel="Time Label">
+                                                        <rect key="frame" x="134.5" y="0.0" width="61.5" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" name="grey03"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="32g-cc-C45" firstAttribute="centerX" secondItem="YC2-NX-OQI" secondAttribute="centerX" id="8uP-6A-HGa"/>
+                                    <constraint firstAttribute="bottom" secondItem="32g-cc-C45" secondAttribute="bottom" constant="24" id="JlC-dc-iJV"/>
+                                    <constraint firstAttribute="height" constant="96" id="frA-XH-FZ6"/>
+                                    <constraint firstItem="32g-cc-C45" firstAttribute="top" secondItem="YC2-NX-OQI" secondAttribute="top" constant="24" id="usH-Oz-kh5"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YXR-Rs-Rwu" userLabel="Weather Stack View">
+                                <rect key="frame" x="101.5" y="211" width="211.5" height="147"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맑아요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyp-gb-vRR" userLabel="Rainyday Label">
+                                        <rect key="frame" x="12" y="0.0" width="187" height="86"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
+                                        <color key="textColor" name="secondary02"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whg-qt-UNd" userLabel="Current Temperature Stack View">
+                                        <rect key="frame" x="64.5" y="94" width="82" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28.49" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyk-ZT-jIk" userLabel="Current Temperature Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="28"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <color key="textColor" name="grey03"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic28_temperature_digit" translatesAutoresizingMaskIntoConstraints="NO" id="kmS-EN-8pT" userLabel="Current Temperature Digit Icon Image View">
+                                                <rect key="frame" x="70" y="0.0" width="12" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="12" id="JOv-9R-cwT"/>
+                                                    <constraint firstAttribute="height" constant="28" id="hZj-dl-Kd1"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-2H-C5L" userLabel="Detail Weather Stack View">
+                                        <rect key="frame" x="0.0" y="130" width="211.5" height="17"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sw5-4D-sQ8" userLabel="Min Temperature Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="55.5" height="17"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_min" translatesAutoresizingMaskIntoConstraints="NO" id="cxG-so-Fmq" userLabel="Min Temperature Icon Image View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="17" id="jst-0S-q66"/>
+                                                            <constraint firstAttribute="height" constant="17" id="xUm-hn-HZm"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWy-LG-qAQ" userLabel="Min Temperature Label">
+                                                        <rect key="frame" x="17" y="0.0" width="31.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="grey03"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_digit" translatesAutoresizingMaskIntoConstraints="NO" id="0P0-hT-UDA" userLabel="Min Temperature Digit Icon Image View">
+                                                        <rect key="frame" x="48.5" y="0.0" width="7" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="7" id="Vhg-eZ-LUC"/>
+                                                            <constraint firstAttribute="height" constant="17" id="jLY-2M-XEX"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgS-dL-GcE" userLabel="Max Temperature Stack View">
+                                                <rect key="frame" x="71.5" y="0.0" width="69" height="17"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_max" translatesAutoresizingMaskIntoConstraints="NO" id="xcO-G0-wSw" userLabel="Max Temperature Icon Image View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="17" id="Aht-WN-b2U"/>
+                                                            <constraint firstAttribute="height" constant="17" id="JaH-mD-JMf"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28.49" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4m-jg-fG7" userLabel="Max Temperature Label">
+                                                        <rect key="frame" x="17" y="0.0" width="45" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="grey03"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_temperature_digit" translatesAutoresizingMaskIntoConstraints="NO" id="Zm8-h0-7uf" userLabel="Max Temperature Digit Icon Image View">
+                                                        <rect key="frame" x="62" y="0.0" width="7" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="7" id="61E-EU-ooy"/>
+                                                            <constraint firstAttribute="height" constant="17" id="xI8-xR-t7N"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xip-kp-UC8" userLabel="Humidity Stack View">
+                                                <rect key="frame" x="156.5" y="0.0" width="55" height="17"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_humidity" translatesAutoresizingMaskIntoConstraints="NO" id="afJ-iv-AAP" userLabel="Humidity Icon Image View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="17" id="2RQ-He-6Hq"/>
+                                                            <constraint firstAttribute="width" constant="17" id="Cps-cx-huR"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmH-jl-dW1" userLabel="Humidity Label">
+                                                        <rect key="frame" x="17" y="0.0" width="21" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="grey03"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic17_humidity_digit" translatesAutoresizingMaskIntoConstraints="NO" id="lZ3-S6-Wyi" userLabel="Humidity Digit Icon Image View">
+                                                        <rect key="frame" x="38" y="0.0" width="17" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="17" id="918-Ux-2gS"/>
+                                                            <constraint firstAttribute="height" constant="17" id="FZX-f0-jZ6"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHg-6M-Wkg" userLabel="Forecast View">
+                                <rect key="frame" x="113.5" y="806" width="187.5" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="내일은 비가 오려나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F76-Ph-2NJ" userLabel="Forecast Title Label">
+                                        <rect key="frame" x="38" y="11" width="111.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" name="white"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0Y-uA-s7J" userLabel="Forecast Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="accent01"/>
+                                <constraints>
+                                    <constraint firstItem="g0Y-uA-s7J" firstAttribute="top" secondItem="aHg-6M-Wkg" secondAttribute="top" id="7FL-a4-hzB"/>
+                                    <constraint firstAttribute="bottom" secondItem="g0Y-uA-s7J" secondAttribute="bottom" id="feK-vh-duQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="F76-Ph-2NJ" secondAttribute="trailing" constant="38" id="fef-OC-sFV"/>
+                                    <constraint firstItem="F76-Ph-2NJ" firstAttribute="leading" secondItem="aHg-6M-Wkg" secondAttribute="leading" constant="38" id="i6K-47-1Ue"/>
+                                    <constraint firstAttribute="bottom" secondItem="F76-Ph-2NJ" secondAttribute="bottom" constant="11" id="iv9-vb-qDq"/>
+                                    <constraint firstItem="F76-Ph-2NJ" firstAttribute="top" secondItem="aHg-6M-Wkg" secondAttribute="top" constant="11" id="kwq-xQ-aSy"/>
+                                    <constraint firstItem="g0Y-uA-s7J" firstAttribute="leading" secondItem="aHg-6M-Wkg" secondAttribute="leading" id="lK5-tt-jRJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="g0Y-uA-s7J" secondAttribute="trailing" id="wTq-YM-w3H"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="primary01"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aHg-6M-Wkg" secondAttribute="bottom" constant="16" id="CLu-of-1Qq"/>
+                            <constraint firstItem="YC2-NX-OQI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fsf-3X-hQR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YC2-NX-OQI" secondAttribute="trailing" id="GLY-ZQ-dK8"/>
+                            <constraint firstItem="YC2-NX-OQI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rxd-sV-WMQ"/>
+                            <constraint firstItem="aHg-6M-Wkg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WnK-BM-0f7"/>
+                            <constraint firstItem="YXR-Rs-Rwu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fxE-ht-cDH"/>
+                            <constraint firstItem="YXR-Rs-Rwu" firstAttribute="top" secondItem="YC2-NX-OQI" secondAttribute="bottom" constant="71" id="ggA-GE-WFj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -39,4 +246,30 @@
             <point key="canvasLocation" x="981" y="136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic17_humidity" width="17" height="17"/>
+        <image name="ic17_humidity_digit" width="17" height="17"/>
+        <image name="ic17_temperature_digit" width="7" height="17"/>
+        <image name="ic17_temperature_max" width="17" height="17"/>
+        <image name="ic17_temperature_min" width="17" height="17"/>
+        <image name="ic28_temperature_digit" width="12" height="28"/>
+        <namedColor name="accent01">
+            <color red="0.039215686274509803" green="0.31764705882352939" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey03">
+            <color red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primary01">
+            <color red="0.52941176470588236" green="0.77647058823529413" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondary02">
+            <color red="1" green="0.6588235294117647" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="thirdly02">
+            <color red="0.94901960784313721" green="0.43529411764705883" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
