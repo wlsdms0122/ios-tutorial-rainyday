@@ -39,6 +39,12 @@ class MainViewController: UIViewController {
     private let locationService = LocationService()
     
     private var forecasts: [Daily] = []
+    private var isLoading: Bool = false {
+        didSet {
+            guard oldValue != isLoading else { return }
+            
+        }
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -57,8 +63,11 @@ class MainViewController: UIViewController {
     }
     
     private func fetchWeather() {
-        // 현재 위치 정보를 가져 옴
+        // 이미 요청 중이면 무시
+        guard !isLoading else { return }
+        
         setLoading(true)
+        // 현재 위치 정보를 가져 옴
         locationService.getLocation { [weak self] in
             guard let location = $0.result else {
                 // 위치 정보를 가져오는데 실패한 경우
@@ -91,7 +100,6 @@ class MainViewController: UIViewController {
                 
                 self?.setHeader(timeZone: weather.timezone, in: Date())
                 self?.setWeahter(current: weather.current, min: daily.temperature.minimum, max: daily.temperature.maximum)
-                self?.showForecastButton()
             }
         }
     }
@@ -129,20 +137,19 @@ class MainViewController: UIViewController {
     
     /// 로팅 상태 설정
     private func setLoading(_ isLoading: Bool) {
+        self.isLoading = isLoading
+        
         UIView.animate(withDuration: 1) {
             self.contentView.alpha = isLoading ? 0 : 1
             self.activityIndicator.isHidden = !isLoading
         }
         
-        isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
-    }
-    
-    /// 일기 예보 버튼 보임
-    private func showForecastButton() {
         UIViewPropertyAnimator(duration: 2, dampingRatio: 0.5) {
-            self.forecastButtonBottomConstraint.priority = .defaultHigh + 1
+            self.forecastButtonBottomConstraint.priority = isLoading ? .defaultHigh - 1 : .defaultHigh + 1
             self.forecastContainerView.layoutIfNeeded()
         }.startAnimation()
+        
+        isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
     }
     
     /// 켈빈 온도를 섭씨온도로 변환
