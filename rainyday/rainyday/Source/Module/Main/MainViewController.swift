@@ -44,11 +44,19 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        fetchWeather()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    // MARK: - Public
+    
+    // MARK: - Private
+    /// 초기 레이아웃 설정
+    private func setupLayout() {
+        locationView.layer.cornerRadius = 12
+        forecastView.layer.cornerRadius = 16
+    }
+    
+    private func fetchWeather() {
         // 현재 위치 정보를 가져 옴
         setLoading(true)
         locationService.getLocation { [weak self] in
@@ -86,15 +94,6 @@ class MainViewController: UIViewController {
                 self?.showForecastButton()
             }
         }
-    }
-    
-    // MARK: - Public
-    
-    // MARK: - Private
-    /// 초기 레이아웃 설정
-    private func setupLayout() {
-        locationView.layer.cornerRadius = 12
-        forecastView.layer.cornerRadius = 16
     }
     
     /// 헤더 정보 설정
@@ -152,6 +151,10 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Action
+    @IBAction func reloadButtonTapped(_ sender: Any) {
+        fetchWeather()
+    }
+    
     @IBAction func forecastButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ForecastViewController") as? ForecastViewController else { return }

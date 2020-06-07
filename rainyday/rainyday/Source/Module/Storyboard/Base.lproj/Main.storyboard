@@ -219,6 +219,13 @@
                                     <constraint firstItem="YC2-NX-OQI" firstAttribute="top" secondItem="B2g-Js-PtD" secondAttribute="top" id="wSF-70-Qms"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1V-kY-pZi" userLabel="Reload Button">
+                                <rect key="frame" x="183" y="730" width="48" height="48"/>
+                                <state key="normal" image="ic48_gps"/>
+                                <connections>
+                                    <action selector="reloadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hgc-4l-ohF"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQo-wj-44r" userLabel="Forecast Safe Area Container View">
                                 <rect key="frame" x="0.0" y="790" width="414" height="106"/>
                                 <subviews>
@@ -275,11 +282,13 @@
                         </subviews>
                         <color key="backgroundColor" name="primary01"/>
                         <constraints>
+                            <constraint firstItem="H1V-kY-pZi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Zl-vC-FZq"/>
                             <constraint firstItem="B2g-Js-PtD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CeR-XP-kDh"/>
                             <constraint firstItem="WZh-e4-8Xv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Ray-0N-wMx"/>
                             <constraint firstAttribute="bottom" secondItem="LQo-wj-44r" secondAttribute="bottom" id="TIa-iI-7Xv"/>
                             <constraint firstItem="B2g-Js-PtD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YwN-Xq-jA7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LQo-wj-44r" secondAttribute="trailing" id="aFj-PS-0ts"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H1V-kY-pZi" secondAttribute="bottom" constant="84" id="hQd-iZ-VX4"/>
                             <constraint firstItem="bkx-x9-0Nk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-32" id="lNd-xl-izQ"/>
                             <constraint firstItem="LQo-wj-44r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lT5-lj-dii"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B2g-Js-PtD" secondAttribute="bottom" id="rwa-Aj-rHt"/>
@@ -588,6 +597,7 @@
         <image name="ic17_temperature_min" width="17" height="17"/>
         <image name="ic28_close" width="28" height="28"/>
         <image name="ic28_temperature_digit" width="12" height="28"/>
+        <image name="ic48_gps" width="48" height="48"/>
         <namedColor name="accent01">
             <color red="0.039215686274509803" green="0.31764705882352939" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
