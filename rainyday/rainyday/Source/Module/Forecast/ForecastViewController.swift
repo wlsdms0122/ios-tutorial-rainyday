@@ -56,7 +56,7 @@ extension ForecastViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
         let isRainyDay = forecast.weather.first?.main == .rain
         // 날씨
-        cell.weatherLabel.text = isRainyDay ? "비와요" : "맑아요"
+        cell.weatherLabel.text = isRainyDay ? "비와요" : "안 와요"
         cell.weatherLabel.textColor = isRainyDay ? R.primary04 : R.secondary02
         
         // 평균 기온

@@ -123,7 +123,7 @@ class MainViewController: UIViewController {
     private func setWeahter(current: Current, min: Double, max: Double) {
         guard let weather = current.weather.first else { return }
         // 날씨
-        rainydayLabel.text = weather.main == .rain ? "비와요" : "맑아요"
+        rainydayLabel.text = weather.main == .rain ? "비와요" : "안 와요"
         
         // 현재 기온
         currentTemperatureLabel.text = String(format: "%.2f", convert(kelvin: current.temperature))
